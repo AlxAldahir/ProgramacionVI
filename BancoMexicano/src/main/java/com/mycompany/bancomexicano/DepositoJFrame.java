@@ -109,13 +109,19 @@ public class DepositoJFrame extends javax.swing.JFrame {
             
             if(res > 0){
                 JOptionPane.showMessageDialog(null, "Deposito exitoso");
-
+                
+                int opcion = JOptionPane.showConfirmDialog(null, "¿Requiere realizar otro deposito?", "Confirmar", JOptionPane.YES_NO_OPTION);
+                
+                if(opcion == JOptionPane.YES_OPTION){
+                    jtfDeposito.setText("");
+                }
+                else{
+                    this.dispose();
+                }
             }
             else{
                 JOptionPane.showMessageDialog(null, "Error al depositar");
             }
-            
-            jtfDeposito.setText("");
             
             con.close();
         }
